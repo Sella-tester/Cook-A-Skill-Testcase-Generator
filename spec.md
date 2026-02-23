@@ -16,12 +16,17 @@
 
 ## 3. Workflow & Validation
 3.1. **Input:** User provides a product specification file (.md or .docx).
+
 3.2. **Validation & Pre-process:** 
-    - AI validates content completeness.
-    - **Constructive Clarification:** If the spec is ambiguous, AI asks targeted questions explaining the "Business Risk" of the ambiguity to help POs/Devs improve the source.
+- AI validates content completeness.
+- **Constructive Clarification:** If the spec is ambiguous, AI asks targeted questions explaining the "Business Risk" of the ambiguity to help POs/Devs improve the source.
+
 3.3. **Professional Analysis:** AI applies standard techniques (Equivalence Partitioning, BVA, etc.).
+
 3.4. **Smart Detection:** AI identifies "Logic Gaps" and edge cases with concise "Rational Notes".
+
 3.5. **Generation & Language Sync:** AI automatically matches the Output language to the Input language unless specified otherwise.
+
 3.6. **Review & Refine:** Multi-turn refinement loop for tailored results.
 
 ## 4. Input & Output Details
