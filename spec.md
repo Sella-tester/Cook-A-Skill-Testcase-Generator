@@ -3,65 +3,60 @@
 ## 1. General Information
 - **Skill Name:** Smart Test Case Generator
 - **Author:** Sella
-- **AI Persona:** Senior QA Engineer (10+ years experience) specializing in logical analysis and comprehensive test coverage.
-- **Goal:** Automatically transform Product Specifications (Product Spec) into comprehensive, intelligent, and structured Test Case lists.
+- **AI Persona:** Senior QA Engineer (10+ years experience) acting as a "Mentor". The AI should deliver highly professional technical output while ensuring it is understandable and educational for junior members.
+- **Goal:** Automatically transform Product Specifications into comprehensive, intelligent, and structured Test Case lists that serve as both a work tool and a learning reference.
 
 ## 2. Target Users & Problems to Solve
-- **Users:** QC Engineers / Testers / QA Managers.
+- **Users:** 
+    - Senior QCs: To accelerate work and ensure zero logic gaps.
+    - Junior Testers: To learn professional test design logic and execute tasks with high precision.
 - **Problem Statement:** 
-    - Manual test case writing is time-consuming (averaging several hours to a full day for a large module).
-    - High risk of missing edge cases or ambiguous logic hidden within the Spec.
-    - Inconsistent test case formats among different team members.
+    - Manual writing is slow and prone to human error.
+    - Knowledge gap between experienced and new team members.
+    - Need for a unified, high-standard testing quality across the team.
 
 ## 3. Workflow & Validation
 3.1. **Input:** User provides a product specification file.
 3.2. **Validation (Pre-process):** 
-    - AI checks file format and content readability.
-    - If the story is unclear or lacks logic, AI will pause and ask for clarification (Error Handling).
-3.3. **Analysis:** AI parses logical flows, functional requirements, and data constraints based on standard testing techniques (Equivalence Partitioning, Boundary Value Analysis).
-3.4. **Smart Detection:** AI proactively identifies ambiguities/logic gaps in the Spec and lists potential edge cases.
-3.5. **Generation:** AI generates the test case list based on a standardized structure.
-3.6. **Review & Refine:** User reviews output; AI provides a "Refinement Mode" to update cases based on feedback.
-3.7. **Output:** Returns Test Cases in Markdown table or downloadable file.
+    - AI checks file format and readability.
+    - **Smart Clarification:** If logic is ambiguous, AI asks specific questions, explaining *why* the current spec is unclear (e.g., "This flow has no exit condition, which could lead to an infinite loop").
+3.3. **Professional Analysis:** AI applies standard techniques (Equivalence Partitioning, Boundary Value Analysis, State Transition).
+3.4. **Smart Detection:** AI identifies "Logic Gaps" and edge cases, providing a brief "Rational Note" for each critical case found.
+3.5. **Generation:** AI creates structured Test Cases.
+3.6. **Accessibility Review:** AI ensures all steps are written in clear, action-oriented language without losing technical depth.
+3.7. **Review & Refine:** Iterative feedback loop with the user.
+3.8. **Output:** Markdown table or downloadable file.
 
 ## 4. Input & Output Details
 ### 4.1. Input Definition (Standard Format)
-To ensure high-quality output, the input should follow this Markdown structure:
-- **Feature Name:** Clear title.
-- **Context/User Story:** "As a [user], I want to [action] so that [value]."
-- **Acceptance Criteria (AC):** Numbered list of conditions.
-- **Technical Constraints:** Rules, data types, limits.
-- **UI/UX:** Description of elements (if any).
+Standard Markdown structure: Feature Name, User Story, Acceptance Criteria (AC), Business Rules, UI/UX descriptions.
 
-### 4.2. Output Structure (Test Case Format)
+### 4.2. Output Structure (Enhanced Format)
 Each Test Case includes:
 - **ID:** (e.g., TC-001).
 - **Title:** Action-based description.
-- **Pre-condition:** State before testing.
-- **Steps:** Numbered execution steps.
-- **Expected Result:** Clear, verifiable outcome.
-- **Priority:** (P0: Critical, P1: Major, P2: Minor).
-- **Type:** (Happy Path / Edge Case / Negative Case).
+- **Pre-condition:** Initial state.
+- **Steps:** Clear, numbered execution steps.
+- **Expected Result:** Verifiable outcome.
+- **Priority:** (P0-P2).
+- **Design Logic (Junior Support):** A brief one-liner explaining the testing technique used (e.g., "Boundary Value analysis for 'Age' field").
+- **Tester Guidance (Optional):** Pro-tips for execution (e.g., "Monitor network tab for 403 errors").
 
 ### 4.3. Acceptance Criteria (AC) for Output
-The generated output is considered "Standard" if it meets:
-- **Full Coverage:** 100% of User Story ACs are covered.
-- **Uniqueness:** No duplicate test cases.
-- **Clarity:** Steps are written in simple, imperative language.
-- **Independence:** Each test case can be executed independently.
+Output must meet: Full Coverage (100% AC), Uniqueness, Clarity, and **Educational Value** (Logical reasoning is evident).
 
 ## 5. Error Handling & Limitations
 ### 5.1. Error Handling
-- **Invalid Format:** Alert user if file is not .md or .docx.
-- **Ambiguous Story:** If AI "confidence" is < 80% regarding logic, it must list specific questions for the user instead of guessing.
-- **API/Connection Issues:** Standardized retry message with local state backup.
+- **Invalid Format:** Alert user.
+- **Ambiguous Story:** List questions with "Reasoning" to guide the user in improving the Spec.
+- **API Issues:** Standardized retry procedures.
 
-### 5.2. Out of Scope (What this tool DOES NOT do)
-- **UI/Visual Testing:** Cannot verify pixel-perfect design or colors.
-- **Automated Execution:** This tool only *generates* cases, it does not *run* them.
-- **Image Processing:** Cannot read logic directly from screenshots/mockups (text description required).
+### 5.2. Out of Scope
+- Visual/UI Design Verification (pixel-perfect).
+- Automated Script Execution (Code-gen for Selenium/Cypress).
+- Logic extraction from un-captioned images.
 
-## 6. Business Value
-- **Efficiency:** Reduces writing time by 10-15x.
-- **Risk Mitigation:** Early detection of Spec issues reduces dev-rework costs.
-- **Consistency:** Uniform quality across the whole testing team.
+## 6. Business & Team Value
+- **Efficiency:** 10-15x faster generation.
+- **Risk Mitigation:** Early detection of logic errors.
+- **Team Growth:** Acts as an on-job training tool, standardizing Senior-level quality for everyone.
