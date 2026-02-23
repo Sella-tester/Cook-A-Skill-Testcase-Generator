@@ -3,60 +3,58 @@
 ## 1. General Information
 - **Skill Name:** Smart Test Case Generator
 - **Author:** Sella
-- **AI Persona:** Senior QA Engineer (10+ years experience) acting as a "Mentor". The AI should deliver highly professional technical output while ensuring it is understandable and educational for junior members.
-- **Goal:** Automatically transform Product Specifications into comprehensive, intelligent, and structured Test Case lists that serve as both a work tool and a learning reference.
+- **AI Persona:** Senior QA Mentor (10+ years experience). The AI acts as a sharp analyst for Seniors while serving as an educational guide for Juniors, maintaining a constructive and professional tone.
+- **Goal:** Automatically transform Product Specifications into comprehensive, intelligent, and structured Test Case lists that facilitate high-quality testing and team growth.
 
 ## 2. Target Users & Problems to Solve
 - **Users:** 
-    - Senior QCs: To accelerate work and ensure zero logic gaps.
-    - Junior Testers: To learn professional test design logic and execute tasks with high precision.
+    - Senior QCs: To automate repetitive work and detect complex logic gaps.
+    - Junior Testers: To bridge the experience gap through guided test design and clear execution steps.
 - **Problem Statement:** 
-    - Manual writing is slow and prone to human error.
-    - Knowledge gap between experienced and new team members.
-    - Need for a unified, high-standard testing quality across the team.
+    - Need for standardized quality across varying experience levels.
+    - Reducing time-to-market while increasing test coverage depth.
 
 ## 3. Workflow & Validation
-3.1. **Input:** User provides a product specification file.
-3.2. **Validation (Pre-process):** 
-    - AI checks file format and readability.
-    - **Smart Clarification:** If logic is ambiguous, AI asks specific questions, explaining *why* the current spec is unclear (e.g., "This flow has no exit condition, which could lead to an infinite loop").
-3.3. **Professional Analysis:** AI applies standard techniques (Equivalence Partitioning, Boundary Value Analysis, State Transition).
-3.4. **Smart Detection:** AI identifies "Logic Gaps" and edge cases, providing a brief "Rational Note" for each critical case found.
-3.5. **Generation:** AI creates structured Test Cases.
-3.6. **Accessibility Review:** AI ensures all steps are written in clear, action-oriented language without losing technical depth.
-3.7. **Review & Refine:** Iterative feedback loop with the user.
-3.8. **Output:** Markdown table or downloadable file.
+3.1. **Input:** User provides a product specification file (.md or .docx).
+3.2. **Validation & Pre-process:** 
+    - AI validates content completeness.
+    - **Constructive Clarification:** If the spec is ambiguous, AI asks targeted questions explaining the "Business Risk" of the ambiguity to help POs/Devs improve the source.
+3.3. **Professional Analysis:** AI applies standard techniques (Equivalence Partitioning, BVA, etc.).
+3.4. **Smart Detection:** AI identifies "Logic Gaps" and edge cases with concise "Rational Notes".
+3.5. **Generation & Language Sync:** AI automatically matches the Output language to the Input language unless specified otherwise.
+3.6. **Review & Refine:** Multi-turn refinement loop for tailored results.
 
 ## 4. Input & Output Details
 ### 4.1. Input Definition (Standard Format)
-Standard Markdown structure: Feature Name, User Story, Acceptance Criteria (AC), Business Rules, UI/UX descriptions.
+Markdown structure: Feature Name, User Story, AC, Business Rules, UI/UX descriptions.
 
-### 4.2. Output Structure (Enhanced Format)
-Each Test Case includes:
-- **ID:** (e.g., TC-001).
-- **Title:** Action-based description.
-- **Pre-condition:** Initial state.
-- **Steps:** Clear, numbered execution steps.
-- **Expected Result:** Verifiable outcome.
-- **Priority:** (P0-P2).
-- **Design Logic (Junior Support):** A brief one-liner explaining the testing technique used (e.g., "Boundary Value analysis for 'Age' field").
-- **Tester Guidance (Optional):** Pro-tips for execution (e.g., "Monitor network tab for 403 errors").
+### 4.2. Output Structure (Modular & Multi-level Format)
+To support both Senior and Junior needs, the output is structured into **Standard Fields** (for export) and **Mentor Fields** (for guidance):
+
+**Standard Fields (Mandatory):**
+- **ID, Title, Pre-condition, Steps, Expected Result, Priority.**
+
+**Mentor Fields (Modular/Optional):**
+- **Design Logic:** One-liner on the testing technique used.
+- **Execution Pro-tips:** Technical guidance (e.g., "Check database for record persistence").
+- **Language Choice:** Ability to toggle between English/Vietnamese for the final list.
 
 ### 4.3. Acceptance Criteria (AC) for Output
-Output must meet: Full Coverage (100% AC), Uniqueness, Clarity, and **Educational Value** (Logical reasoning is evident).
+- **Coverage:** 100% AC mapped.
+- **Precision:** Steps are concise, unambiguous, and action-oriented.
+- **Actionability:** A Junior tester can execute the case without external help.
 
 ## 5. Error Handling & Limitations
 ### 5.1. Error Handling
-- **Invalid Format:** Alert user.
-- **Ambiguous Story:** List questions with "Reasoning" to guide the user in improving the Spec.
-- **API Issues:** Standardized retry procedures.
+- **Language Mismatch:** AI alerts if it detects mixed languages that may confuse logic.
+- **Over-Complexity:** If a feature is too large, AI suggests breaking it down into sub-modules.
 
 ### 5.2. Out of Scope
 - Visual/UI Design Verification (pixel-perfect).
-- Automated Script Execution (Code-gen for Selenium/Cypress).
-- Logic extraction from un-captioned images.
+- Automated Script Execution.
+- Direct logic extraction from non-textual elements in images.
 
 ## 6. Business & Team Value
-- **Efficiency:** 10-15x faster generation.
-- **Risk Mitigation:** Early detection of logic errors.
-- **Team Growth:** Acts as an on-job training tool, standardizing Senior-level quality for everyone.
+- **Scalability:** Enables teams to scale quality regardless of individual experience levels.
+- **Cost Reduction:** Early logic gap detection prevents expensive downstream bug fixing.
+- **Knowledge Base:** Encodes Senior expertise into a reusable digital asset.
