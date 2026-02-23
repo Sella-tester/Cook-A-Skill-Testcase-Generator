@@ -91,20 +91,28 @@ Priority: 🔴 Critical ~[N] | 🟡 Major ~[N] | 🟢 Minor ~[N]
 **Mentor Fields (Optional, default ON):** Design Logic (technique used) | Execution Pro-tip (technical guidance)
 
 **Test types covered per feature:**
-- ✅ **Happy Path** — primary success flow (always)
-- ⚠️ **Edge Case** — boundary values, unusual valid inputs (always)
-- ❌ **Negative** — invalid inputs, empty fields, wrong format (always)
-- 🔒 **Security** — auth bypass, SQL injection, XSS, session, brute force (when feature has auth/forms/data)
+
+| Type | Coverage | When |
+|------|----------|------|
+| ✅ **Happy Path** | Primary success flow; post-action redirect; multi-step completion | Always |
+| ⚠️ **Edge Case** | Boundary values (min/max/min-1/max+1); special characters & unicode; very long strings; both fields empty simultaneously; double-submit / rapid click; concurrent actions (multiple tabs); network timeout mid-flow; session expiry during operation | Always |
+| ❌ **Negative** | Invalid input format; wrong data type; missing required fields; value out of allowed range; duplicate submission; unauthorized action | Always |
+| 🔒 **Security** | Auth bypass; SQL injection; XSS; CSRF; IDOR (User A → User B data); session fixation; brute force; sensitive data in URL params; prompt injection (free-text fields); rate limiting | When feature has auth / forms / user data |
+| 🖥️ **UI/UX** | Loading state; empty state (no data); error state with specific message; button disabled/enabled transitions; inline form validation; toast/notification behavior | When spec describes UI behavior |
+| 📱 **Mobile** | Touch targets (min 44×44px); keyboard obscuring inputs; offline mode; orientation change; app backgrounded mid-flow | When platform includes mobile |
+| 🔌 **API** | Status code coverage (see Section 8); required vs optional fields; request/response schema validation; pagination; sorting & filtering params | When feature has API endpoints |
 
 ### Phase 3 — Security Cases Auto-Trigger
 
-| Feature Type | Security Cases Generated |
-|-------------|--------------------------|
-| Auth / Login | Auth bypass, brute force, session fixation |
-| Input fields | SQL Injection, XSS (basic) |
-| File upload | Invalid type, oversized, path traversal |
-| User data | IDOR — User A accessing User B's data |
-| Role-based | Privilege escalation |
+AI activates security case generation when spec contains any of the following:
+
+| Trigger Keyword in Spec | Activates |
+|------------------------|-----------|
+| login, auth, token, session, password | Auth bypass, brute force, session fixation, CSRF |
+| form, input, search, comment, free-text | SQL injection, XSS, prompt injection |
+| upload, file, attachment | Invalid type, oversized file, path traversal |
+| user data, profile, account, personal info | IDOR, data exposure, PII leak |
+| role, permission, admin, access control | Privilege escalation |
 
 All security cases: Type = `Security`, Priority = 🔴 Critical.
 
@@ -144,7 +152,7 @@ Table mapping each AC → TC IDs that cover it. Flags Logic Gaps pending PO conf
 | No AC found | Ask user to describe expected behavior |
 | Image-only spec | Cannot extract logic — request text spec |
 | Contradictory rules | Flag both in Pre-Analysis, ask user to confirm |
-| PII detected | Alert + offer masking before processing |
+| PII detected | See Section 5 — Data Privacy & Masking for full handling flow |
 
 **HTTP Error Codes (for API features):** Minimum generate: `200/201`, `400`, `401`, `422`. Add `429`, `500` when external services are involved.
 
