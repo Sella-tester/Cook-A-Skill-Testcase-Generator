@@ -57,10 +57,14 @@ Feed a product spec → get a full test suite in minutes, not hours.
 ├── demo/
 │   ├── sample_input.md  — Sample spec (User Registration feature)
 │   └── sample_output.md — Full pipeline output (32 test cases, 7 types)
-└── README.md            — You are here
+├── showcase/
+│   ├── SYSTEM_PROMPT.md  — Ready-to-paste Custom Instructions for Claude Projects
+│   ├── SETUP_GUIDE.md    — Step-by-step Claude Project setup
+│   └── DEMO_SCRIPT.md    — Presentation script for the Judging Panel (BGK)
+└── README.md             — You are here
 ```
 
-> 💡 **See it in action!** Check the [`demo/`](demo/) folder for a complete end-to-end example: spec input → 32 generated test cases with Pre-Analysis Report, AC Coverage Matrix, and Report Template.
+> 💡 **See it in action!** Check [`demo/`](demo/) for a complete end-to-end example, and [`showcase/`](showcase/) for the Claude Project setup + live demo script.
 
 ## 🛠️ Tools / AI Used
 
