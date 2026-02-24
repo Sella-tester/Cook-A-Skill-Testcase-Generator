@@ -54,8 +54,13 @@ Feed a product spec → get a full test suite in minutes, not hours.
 ├── SKILL_CARD.md        — One-page summary for the Judging Panel (BGK)
 ├── QA_Standards.md      — Testing techniques, naming conventions, quality criteria
 ├── Output_Template.md   — Sample output with Login feature examples
+├── demo/
+│   ├── sample_input.md  — Sample spec (User Registration feature)
+│   └── sample_output.md — Full pipeline output (32 test cases, 7 types)
 └── README.md            — You are here
 ```
+
+> 💡 **See it in action!** Check the [`demo/`](demo/) folder for a complete end-to-end example: spec input → 32 generated test cases with Pre-Analysis Report, AC Coverage Matrix, and Report Template.
 
 ## 🛠️ Tools / AI Used
 
