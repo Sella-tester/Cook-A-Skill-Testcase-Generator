@@ -55,11 +55,13 @@ Feed a product spec → get a full test suite in minutes, not hours.
 ├── QA_Standards.md      — Testing techniques, naming conventions, quality criteria
 ├── Output_Template.md   — Sample output with Login feature examples
 ├── demo/
-│   ├── sample_input.md   — Sample spec (User Registration feature)
-│   ├── sample_output.md  — Full pipeline output (32 test cases)
-│   ├── complex_input.md  — High-complexity spec (E-Commerce Checkout)
-│   ├── crypto_trade_input.md  — Fintech spec (Crypto Exchange Order Book)
-│   └── crypto_trade_output.md — Advanced output (Fintech-specific edge cases)
+│   ├── sample_input.md        — Sample spec (User Registration feature)
+│   ├── sample_output.md       — Full pipeline output (32 test cases)
+│   ├── complex_input.md       — High-complexity spec (E-Commerce Checkout)
+│   ├── crypto_trade_input.md   — Fintech spec (Crypto Exchange Order Book)
+│   ├── crypto_trade_output.md  — Advanced output (Fintech edge cases)
+│   ├── mobile_transfer_input.md — Mobile Banking spec (Mobile + API triggers)
+│   └── mobile_banking_output.md — Full 7-Type Showcase (Mobile & API highlights)
 ├── showcase/
 │   ├── SYSTEM_PROMPT.md  — Ready-to-paste Custom Instructions for Claude Projects
 │   ├── SETUP_GUIDE.md    — Step-by-step Claude Project setup
