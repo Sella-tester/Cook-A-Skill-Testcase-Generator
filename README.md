@@ -64,6 +64,7 @@ Feed a product spec → get a full test suite in minutes, not hours.
 │   ├── SYSTEM_PROMPT.md  — Ready-to-paste Custom Instructions for Claude Projects
 │   ├── SETUP_GUIDE.md    — Step-by-step Claude Project setup
 │   └── DEMO_SCRIPT.md    — Presentation script for the Judging Panel (BGK)
+├── Spec_Writing_Guide.md — Guide for writing high-quality specs for AI
 └── README.md             — You are here
 ```
 
